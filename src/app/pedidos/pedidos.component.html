@@ -1,0 +1,37 @@
+<div class="container">
+  <div *ngIf="mensagemSucesso" class="alert alert-success" role="alert">
+    {{mensagemSucesso}}
+  </div>
+  <h1>Pedidos</h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Mesa</th>
+        <th>Pizzas</th>
+        <th>Status</th>
+        <th>Alterar Status</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaPedidos">
+      <ng-container *ngFor="let order of orders">
+        <tr *ngIf="order?.status !== 'Pronto'">
+          <td>{{order._id}}</td>
+          <td>{{order.customer?.name}}</td>
+          <td>{{order.customer?.table}}</td>
+          <td>
+            <ul>
+              <li *ngFor="let pizza of order.pizzas">{{pizza?.name}}</li>
+            </ul>
+          </td>
+          <td>{{order?.status}}</td>
+          <td>
+            <button *ngIf="order?.status === 'Confirmando'" (click)="alterarStatusPedido(order)">Alterar Status</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

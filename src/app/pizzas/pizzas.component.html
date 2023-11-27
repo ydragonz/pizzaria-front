@@ -1,0 +1,41 @@
+
+<div class="container">
+  <h1>Pizzas</h1>
+
+  <form (ngSubmit)="adicionarPizza()" class="mb-3">
+    <div class="row">
+      <div class="col">
+        <input type="text" [(ngModel)]="novaPizza.name" name="name" class="form-control" placeholder="Nome da Pizza">
+      </div>
+      <div class="col">
+        <input type="text" [(ngModel)]="novaPizza.description" name="description" class="form-control" placeholder="Descrição">
+      </div>
+      <div class="col">
+        <input type="number" [(ngModel)]="novaPizza.price" name="price" class="form-control" placeholder="Preço">
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-success">Adicionar Pizza</button>
+      </div>
+    </div>
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Pizza</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaPedidos">
+      <tr *ngFor="let pizza of pizzas">
+        <td>{{pizza?.name}}</td>
+        <td>{{pizza.description}}</td>
+        <td>{{pizza.price}}</td>
+        <td><button (click)="editarPizza()">Editar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
