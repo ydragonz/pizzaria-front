@@ -1,6 +1,10 @@
 
 <div class="container">
-  <h1>Pizzas</h1>
+  <div *ngIf="mensagemSucesso" class="alert alert-success" role="alert">
+    {{mensagemSucesso}}
+  </div>
+
+  <h1 class="">Pizzas</h1>
 
   <form (ngSubmit)="adicionarPizza()" class="mb-3">
     <div class="row">
@@ -33,7 +37,7 @@
         <td>{{pizza?.name}}</td>
         <td>{{pizza.description}}</td>
         <td>{{pizza.price}}</td>
-        <td><button (click)="editarPizza()">Editar</button></td>
+        <td><button [routerLink]="['/editar-pizza', pizza._id]">Editar</button></td>
       </tr>
     </tbody>
   </table>

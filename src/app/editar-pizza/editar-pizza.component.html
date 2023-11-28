@@ -1,0 +1,20 @@
+<div class="container">
+  <form (ngSubmit)="editarPizza()" class="mb-3">
+    <div class="row">
+      <div class="col">
+        <input type="text" [(ngModel)]="pizzaEditando.name" name="name" class="form-control" placeholder="Nome da Pizza">
+      </div>
+      <div class="col">
+        <input type="text" [(ngModel)]="pizzaEditando.description" name="description" class="form-control" placeholder="Descrição">
+      </div>
+      <div class="col">
+        <input type="number" [(ngModel)]="pizzaEditando.price" name="price" class="form-control" placeholder="Preço">
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+

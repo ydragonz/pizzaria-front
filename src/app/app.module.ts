@@ -8,6 +8,7 @@ import { PizzasComponent } from './pizzas/pizzas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import { EditarPizzaComponent } from './editar-pizza/editar-pizza.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     PedidosComponent,
     PizzasComponent,
     HeaderComponent,
+    EditarPizzaComponent,
   ],
   imports: [
     BrowserModule,

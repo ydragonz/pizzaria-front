@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class PizzasComponent {
   pizzas: any[] = [];
   novaPizza = { name: '', description: '', price: null };
+  mensagemSucesso: string = '';
 
   constructor(private http: HttpClient) {
     this.carregarPizzas();
@@ -23,10 +24,7 @@ export class PizzasComponent {
   adicionarPizza() {
     this.http.post<any>('http://localhost:3001/api/pizzas', this.novaPizza).subscribe(() => {
       this.carregarPizzas();
+      this.mensagemSucesso = 'Pizza cadastrada com sucesso!';
     });
-  }
-
-  editarPizza() {
-
   }
 }
