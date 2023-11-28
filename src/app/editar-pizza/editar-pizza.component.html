@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
   <form (ngSubmit)="editarPizza()" class="mb-3">
     <div class="row">
       <div class="col">
@@ -12,7 +12,9 @@
       </div>
       <div class="col">
         <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+        <button type="cancel" class="btn btn-secondary" [routerLink]="['/pizzas']">Voltar</button>
       </div>
+
     </div>
   </form>
 
