@@ -29,7 +29,7 @@
         <th>Pizza</th>
         <th>Descrição</th>
         <th>Preço</th>
-        <th>Editar</th>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody id="tabelaPedidos">
@@ -37,7 +37,10 @@
         <td>{{pizza?.name}}</td>
         <td>{{pizza.description}}</td>
         <td>{{pizza.price}}</td>
-        <td><button [routerLink]="['/editar-pizza', pizza._id]">Editar</button></td>
+        <td>
+          <button class="btn btn-secondary mr-2" [routerLink]="['/editar-pizza', pizza._id]">Editar</button>
+          <button class="btn btn-danger" (click)="removerPizza(pizza)">Excluir</button>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -24,11 +24,10 @@ th, td {
   text-align: left;
 }
 
-button {
-  padding: 10px;
-  cursor: pointer;
-}
-
 button.btn-success {
   margin-top: 0;
+}
+
+button.btn-secondary {
+  margin-right: 10px;
 }

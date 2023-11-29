@@ -27,4 +27,11 @@ export class PizzasComponent {
       this.mensagemSucesso = 'Pizza cadastrada com sucesso!';
     });
   }
+
+  removerPizza(pizza: any) {
+    this.http.delete(`http://localhost:3001/api/pizzas/${pizza._id}`).subscribe(() => {
+      this.carregarPizzas();
+      this.mensagemSucesso = 'Pizza removida com sucesso!';
+    });
+  }
 }
