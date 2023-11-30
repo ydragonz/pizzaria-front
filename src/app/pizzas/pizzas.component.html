@@ -1,24 +1,30 @@
-
-<div class="container">
-  <div *ngIf="mensagemSucesso" class="alert alert-success" role="alert">
+<div class="container mt-5">
+  <div *ngIf="mensagemSucesso" class="alert alert-success mb-3" role="alert">
     {{mensagemSucesso}}
   </div>
 
-  <h1>Pizzas</h1>
+  <h1 class="mb-4">Pizzas</h1>
 
-  <form (ngSubmit)="adicionarPizza()" class="mb-3">
+  <form (ngSubmit)="adicionarPizza()" #ngForm="ngForm">
     <div class="row">
-      <div class="col">
-        <input type="text" [(ngModel)]="novaPizza.name" name="name" class="form-control" placeholder="Nome da Pizza">
+      <div class="col-md-4 mb-3">
+        <label for="name" class="form-label">Nome da Pizza</label>
+        <input type="text" id="name" [(ngModel)]="novaPizza.name" name="name" class="form-control" required placeholder="Digite o nome">
       </div>
-      <div class="col">
-        <input type="text" [(ngModel)]="novaPizza.description" name="description" class="form-control" placeholder="Descrição">
+      <div class="col-md-4 mb-3">
+        <label for="description" class="form-label">Descrição</label>
+        <input type="text" id="description" [(ngModel)]="novaPizza.description" name="description" class="form-control" required placeholder="Digite a descrição">
       </div>
-      <div class="col">
-        <input type="number" [(ngModel)]="novaPizza.price" name="price" class="form-control" placeholder="Preço">
+      <div class="col-md-2 mb-3">
+        <label for="price" class="form-label">Preço (R$)</label>
+        <div class="input-group">
+          <span class="input-group-text">R$</span>
+          <input type="number" id="price" [(ngModel)]="novaPizza.price" name="price" class="form-control" required placeholder="Digite o preço">
+        </div>
       </div>
-      <div class="col">
-        <button type="submit" class="btn btn-success">Adicionar Pizza</button>
+      <div class="col-md-2 mb-3 align-self-end">
+        <label class="invisible">Ação</label>
+        <button type="submit" class="btn btn-success btn-block" [disabled]="ngForm.invalid">Adicionar Pizza</button>
       </div>
     </div>
   </form>
@@ -38,11 +44,10 @@
         <td>{{pizza.description}}</td>
         <td>{{pizza.price}}</td>
         <td>
-          <button class="btn btn-secondary mr-2" [routerLink]="['/editar-pizza', pizza._id]">Editar</button>
-          <button class="btn btn-danger" (click)="removerPizza(pizza)">Excluir</button>
+          <button class="btn btn-secondary" [routerLink]="['/editar-pizza', pizza._id]">Editar</button>
+          <button class="btn btn-danger ml-2" (click)="removerPizza(pizza)">Excluir</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-

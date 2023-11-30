@@ -1,13 +1,13 @@
-<div class="container">
-  <div *ngIf="mensagemSucesso" class="alert alert-success" role="alert">
+<div class="container mt-5">
+  <div *ngIf="mensagemSucesso" class="alert alert-success mb-3" role="alert">
     {{mensagemSucesso}}
   </div>
+  
   <h1>Pedidos</h1>
 
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>ID</th>
         <th>Cliente</th>
         <th>Mesa</th>
         <th>Pizzas</th>
@@ -15,10 +15,9 @@
         <th>Alterar Status</th>
       </tr>
     </thead>
-    <tbody id="tabelaPedidos">
+    <tbody>
       <ng-container *ngFor="let order of orders">
         <tr *ngIf="order?.status !== 'Pronto'">
-          <td>{{order._id}}</td>
           <td>{{order.customer?.name}}</td>
           <td>{{order.customer?.table}}</td>
           <td>
@@ -28,7 +27,7 @@
           </td>
           <td>{{order?.status}}</td>
           <td>
-            <button class="btn btn-secondary" (click)="alterarStatusPedido(order)">Atualizar</button>
+            <button class="btn btn-secondary btn-sm" (click)="alterarStatusPedido(order)">Atualizar</button>
           </td>
         </tr>
       </ng-container>

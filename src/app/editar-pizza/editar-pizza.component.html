@@ -1,22 +1,27 @@
 <div class="container mt-5">
   <form (ngSubmit)="editarPizza()" class="mb-3">
     <div class="row">
-      <div class="col">
-        <input type="text" [(ngModel)]="pizzaEditando.name" name="name" class="form-control" placeholder="Nome da Pizza">
+      <div class="col-md-3">
+        <label for="pizzaName" class="form-label">Nome da Pizza</label>
+        <input type="text" id="pizzaName" [(ngModel)]="pizzaEditando.name" name="name" class="form-control" placeholder="Digite o nome da pizza" required>
       </div>
-      <div class="col">
-        <input type="text" [(ngModel)]="pizzaEditando.description" name="description" class="form-control" placeholder="Descrição">
+      <div class="col-md-4">
+        <label for="pizzaDescription" class="form-label">Descrição</label>
+        <input type="text" id="pizzaDescription" [(ngModel)]="pizzaEditando.description" name="description" class="form-control" placeholder="Descreva a pizza">
       </div>
-      <div class="col">
-        <input type="number" [(ngModel)]="pizzaEditando.price" name="price" class="form-control" placeholder="Preço">
+      <div class="col-md-2">
+        <label for="pizzaPrice" class="form-label">Preço</label>
+        <div class="input-group">
+          <span class="input-group-text">R$</span>
+          <input type="number" id="pizzaPrice" [(ngModel)]="pizzaEditando.price" name="price" class="form-control" placeholder="Preço" step="0.01" required>
+        </div>
       </div>
-      <div class="col">
-        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-        <button type="cancel" class="btn btn-secondary" [routerLink]="['/pizzas']">Voltar</button>
-      </div>
-
+      <div class="col-md-2 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary btn-block flex-fill">Salvar Alterações</button>
+      </div>      
+      <div class="col-md-1 d-flex align-items-end">
+        <a class="btn btn-secondary btn-block ms-2 flex-fill" [routerLink]="['/pizzas']">Voltar</a>
+      </div>   
     </div>
   </form>
-
 </div>
-
